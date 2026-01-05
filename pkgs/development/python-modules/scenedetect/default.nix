@@ -22,14 +22,16 @@ let
 in
 buildPythonPackage rec {
   pname = "scenedetect";
-  version = "0.6.6";
+  # note that nix-update will add "-release" (as in the github tag) at the end of the version, which will break the update
+  # and versionCheckHook fails if version is including "-release"
+  version = "0.6.7.1";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "Breakthrough";
     repo = "PySceneDetect";
     tag = "v${version}-release";
-    hash = "sha256-G5NLk6eOpclfrzzHad2KT3uZqydSJU0oF/4L2NIdZe0=";
+    hash = "sha256-bLR04wn4O23fHC12ZvWwDI7gLGvMhm+YnBOy4zYMPSM=";
   };
 
   build-system = [ setuptools ];
