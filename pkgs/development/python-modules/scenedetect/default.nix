@@ -34,6 +34,8 @@ buildPythonPackage rec {
     hash = "sha256-bLR04wn4O23fHC12ZvWwDI7gLGvMhm+YnBOy4zYMPSM=";
   };
 
+  patches = [ ./click-upgrade.patch ];
+
   build-system = [ setuptools ];
 
   dependencies = [
